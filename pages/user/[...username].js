@@ -7,16 +7,8 @@ import UserContext from '../../contexts/userContext';
 import Error from '../../components/Error';
 import PropTypes from 'prop-types';
 
-const User = (/*{ user }*/) => {
-  <div>
-  <h3>Admin Panel</h3>
-  <style jsx>{`
-    h3 {
-      text-align: center;
-    }
-  `}</style>
-</div>
-  /*const router = useRouter();
+const User = ({ user }) => {
+  const router = useRouter();
   const userCtx = useContext(UserContext);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState({});
@@ -74,9 +66,9 @@ const User = (/*{ user }*/) => {
         }
       `}</style>
     </div>
-  );*/
+  );
 };
-/*
+
 export async function getStaticPaths() {
   const response = await axios
     .get(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users`)
@@ -108,10 +100,10 @@ export async function getStaticProps({ params }) {
   return {
     props: { user },
   };
-}*/
-/*
+}
+
 User.propTypes = {
   user: PropTypes.object.isRequired,
 };
-*/
+
 export default User;
