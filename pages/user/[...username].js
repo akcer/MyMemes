@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+/*import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { parseISO, format } from 'date-fns';
 import Image from 'next/image';
@@ -107,3 +107,4 @@ User.propTypes = {
 };
 
 export default User;
+*/
