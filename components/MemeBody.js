@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const MemeBody = ({ topTitle, image, text, bottomTitle }) => {
   const handleImageError = (event) => {
-    event.target.src = '/image-not-found.jpg';
+    event.target.src = '/default-image.png';
   };
   return (
     <div>
