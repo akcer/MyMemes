@@ -76,7 +76,7 @@ const User = (/*{ user }*/) => {
     </div>
   );*/
 };
-
+/*
 export async function getStaticPaths() {
   const response = await axios
     .get(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users`)
@@ -108,7 +108,7 @@ export async function getStaticProps({ params }) {
   return {
     props: { user },
   };
-}
+}*/
 /*
 User.propTypes = {
   user: PropTypes.object.isRequired,
