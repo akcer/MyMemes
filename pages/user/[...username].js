@@ -36,7 +36,7 @@ const User = ({ user }) => {
         height={1000}
       />
       <div className="created">
-        Account created: {format(parseISO(user?.createdAt), 'dd MMMM yyyy')}
+        Account created: {user?.createdAt/*format(parseISO(user?.createdAt), 'dd MMMM yyyy')*/}
       </div>
       {isError && <Error error={error} />}
       {
