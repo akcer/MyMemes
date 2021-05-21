@@ -30,13 +30,13 @@ const User = ({ user }) => {
     <div className="user">
       <h2>{user?.username}</h2>
       <Image
-        src={`${process.env.NEXT_PUBLIC_SERVER_HOST}/avatars/${user.avatar}`}
+        src={`${process.env.NEXT_PUBLIC_SERVER_HOST}/avatars/${user?.avatar}`}
         alt={user?.username}
         width={1000}
         height={1000}
       />
       <div className="created">
-        Account created: {format(parseISO(user.createdAt), 'dd MMMM yyyy')}
+        Account created: {format(parseISO(user?.createdAt), 'dd MMMM yyyy')}
       </div>
       {isError && <Error error={error} />}
       {
@@ -45,7 +45,7 @@ const User = ({ user }) => {
           <button
             type="button"
             onClick={() => {
-              deleteUser(user._id);
+              deleteUser(user?._id);
             }}
           >
             Delete User
@@ -77,7 +77,7 @@ export async function getStaticPaths() {
     });
   const resp = response.data;
   const paths = resp.map(
-    (user) => `/user/${encodeURIComponent(user.username)}`
+    (user) => `/user/${encodeURIComponent(user?.username)}`
   );
   return { paths, fallback: true };
 }
