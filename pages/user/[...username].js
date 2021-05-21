@@ -28,10 +28,10 @@ const User = ({ user }) => {
   };
   return (
     <div className="user">
-      <h2>{user.username}</h2>
+      <h2>{user?.username}</h2>
       <Image
         src={`${process.env.NEXT_PUBLIC_SERVER_HOST}/avatars/${user.avatar}`}
-        alt={user.username}
+        alt={user?.username}
         width={1000}
         height={1000}
       />
@@ -41,7 +41,7 @@ const User = ({ user }) => {
       {isError && <Error error={error} />}
       {
         //show delete button if user is admin or meme author
-        (userCtx.role === 'admin' || userCtx.username === user.username) && (
+        (userCtx.role === 'admin' || userCtx.username === user?.username) && (
           <button
             type="button"
             onClick={() => {
