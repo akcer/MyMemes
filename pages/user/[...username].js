@@ -79,7 +79,7 @@ export async function getStaticPaths() {
   const paths = resp.map(
     (user) => `/user/${encodeURIComponent(user.username)}`
   );
-  return { paths, fallback: true };
+  return { paths/*, fallback: true*/ };
 }
 export async function getStaticProps({ params }) {
   const response = await axios
