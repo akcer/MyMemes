@@ -3,9 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MemeBody = ({ topTitle, image, text, bottomTitle }) => {
-  const handleImageError = (event) => {
-    event.target.src = '/default-image.png';
-  };
+  
   return (
     <div>
       <h2>{topTitle}</h2>
@@ -16,7 +14,6 @@ const MemeBody = ({ topTitle, image, text, bottomTitle }) => {
           width={1000}
           height={1000}
           objectFit="contain"
-          onError={handleImageError}
         />
       </div>
       <h2>{bottomTitle}</h2>
