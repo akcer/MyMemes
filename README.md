@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MyMemes
 
-## Getting Started
+Memes Server Side App build with Next.js
 
-First, run the development server:
+## Requirements
 
-```bash
-npm run dev
-# or
-yarn dev
+- Node.js
+- MongoDB
+
+## Installation
+
+- Set up API [MyMemesAPI](https://github.com/akcer/MyMemesAPI)
+
+- Clone project
+
+```
+$ git clone https://github.com/akcer/MyMemes.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Enter the project directory:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+$ cd MyMemes
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Create `.env.local` file
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+$ touch .env.local
+```
 
-## Learn More
+- Add following environment variables:
 
-To learn more about Next.js, take a look at the following resources:
+```
+HOSTNAME=localhost
+NEXT_PUBLIC_SERVER_HOST=http://localhost:3001
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Install NPM dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+$ npm install
+```
 
-## Deploy on Vercel
+- Run the development server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+$ npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Go to http://localhost:3000 to access the app.
+
+## Technologies
+
+- React.js
+- create-next-app
+- Next.js
+- Date-fns
