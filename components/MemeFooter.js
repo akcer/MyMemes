@@ -30,18 +30,18 @@ const MemeFooter = ({ id, author, createdAt, likes, dislikes }) => {
       });
   };
   return (
-    <div className="bottomBar">
-      <div>
+    <div className="flex flex-col items-center w-11/12 p-4 mx-auto bg-gray-800">
+      <div className="text-sm">
         Author:&nbsp;
         <Link
           href={{ pathname: '/user', query: { user: author } }}
           as={`/user/${author}`}
         >
-          <a>{author}</a>
+          <a className="font-bold">{author}</a>
         </Link>
         {'   '}
         Created:&nbsp;
-        <span>
+        <span className="font-bold">
           {formatDistanceToNow(parseISO(createdAt), { addSuffix: true })}
         </span>
       </div>
@@ -52,6 +52,7 @@ const MemeFooter = ({ id, author, createdAt, likes, dislikes }) => {
         //show delete button if user is admin or meme author
         (user.role === 'admin' || user.username === author) && (
           <button
+            className="btn-light-gray"
             type="button"
             onClick={() => {
               deleteMeme(id);
@@ -61,26 +62,6 @@ const MemeFooter = ({ id, author, createdAt, likes, dislikes }) => {
           </button>
         )
       }
-      <style jsx>
-        {`
-          .bottomBar {
-            background-color: #2a2a2a;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding:1rem;
-            font-size 14px;
-            border-top:5px solid var(--main-color)
-
-          }
-          a, span {
-            font-weight: bold;
-          }
-          button{
-            
-          }
-        `}
-      </style>
     </div>
   );
 };
@@ -91,4 +72,5 @@ MemeFooter.propTypes = {
   likes: PropTypes.number.isRequired,
   dislikes: PropTypes.number.isRequired,
 };
+
 export default MemeFooter;

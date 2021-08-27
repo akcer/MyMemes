@@ -27,22 +27,27 @@ const User = ({ user }) => {
       });
   };
   return (
-    <div className="user">
-      <h2>{user?.username}</h2>
+    <div className="flex flex-col items-center">
+      <h2 className="text-2xl font-bold mb-4">{user?.username}</h2>
       <Image
         src={`${process.env.NEXT_PUBLIC_SERVER_HOST}/avatars/${user?.avatar}`}
         alt={user?.username}
         width={1000}
         height={1000}
       />
-      <div className="created">
-        Account created: {format(parseISO(user?.createdAt || new Date().toISOString()), 'dd MMMM yyyy')}
+      <div className="my-4">
+        Account created:{' '}
+        {format(
+          parseISO(user?.createdAt || new Date().toISOString()),
+          'dd MMMM yyyy'
+        )}
       </div>
       {isError && <Error error={error} />}
       {
         //show delete button if user is admin or meme author
         (userCtx.role === 'admin' || userCtx.username === user?.username) && (
           <button
+          className="btn-dark-gray"
             type="button"
             onClick={() => {
               deleteUser(user?._id);
@@ -52,19 +57,6 @@ const User = ({ user }) => {
           </button>
         )
       }
-      <style jsx>{`
-        h2 {
-          margin-top: 0;
-        }
-        .user {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        .created {
-          margin: 1rem 0;
-        }
-      `}</style>
     </div>
   );
 };

@@ -53,10 +53,15 @@ const AddNewMeme = () => {
 
   return (
     <>
-      <h3>Add new Meme</h3>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <h3 className="text-center text-xl font-bold mb-4">Add new Meme</h3>
+      <form
+        className="flex flex-col items-center"
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+      >
         <label htmlFor="topTitle">Top Title:</label>
         <input
+          className="input"
           type="text"
           name="topTitle"
           id="topTitle"
@@ -65,6 +70,7 @@ const AddNewMeme = () => {
         />
         <label htmlFor="imageFile">Image from disc:</label>
         <input
+          className="text-white mb-4"
           type="file"
           name="imageFile"
           id="imageFile"
@@ -73,6 +79,7 @@ const AddNewMeme = () => {
         />
         <label htmlFor="bottomTitle">Bottom Title:</label>
         <input
+          className="input"
           type="text"
           name="bottomTitle"
           id="bottomTitle"
@@ -81,6 +88,7 @@ const AddNewMeme = () => {
         />
         <label htmlFor="text">Text:</label>
         <input
+          className="input"
           type="text"
           name="text"
           id="text"
@@ -88,7 +96,7 @@ const AddNewMeme = () => {
           value={text}
         />
         {isError && <Error error={error} />}
-        <button>Add New Meme</button>
+        <button className="mb-4 btn-dark-gray">Add New Meme</button>
       </form>
       <MemeBody
         topTitle={topTitle}
@@ -96,20 +104,6 @@ const AddNewMeme = () => {
         bottomTitle={bottomTitle}
         text={text}
       />
-      <style jsx>{`
-        h3 {
-          text-align: center;
-          margin-top: 0;
-        }
-        form {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        button {
-          margin: 1rem 0;
-        }
-      `}</style>
     </>
   );
 };

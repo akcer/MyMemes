@@ -7,27 +7,17 @@ const Error = ({ error }) => {
   } else {
     //https://github.com/axios/axios#handling-errors
     return (
-      <div>
-        <h3>Something Goes Wrong!!! </h3>
+      <div className="text-black bg-red-600">
+        <h3 className="text-center text-2xl">Something Goes Wrong!!! </h3>
         {error.response ? (
-          <p>{error.response.data.message}</p>
+          <p className="text-center">{error.response.data.message}</p>
         ) : error.request ? (
-          <p>
+          <p className="text-center">
             'Network Error! The request was made but no response was received.'
           </p>
         ) : (
-          <p>{error.message}</p>
+          <p className="text-center">{error.message}</p>
         )}
-
-        <style jsx>{`
-          h3,
-          p {
-            text-align: center;
-          }
-          div {
-            background-color: red;
-          }
-        `}</style>
       </div>
     );
   }

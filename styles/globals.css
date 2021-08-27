@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply py-2 px-4 rounded hover:opacity-50 transform active:scale-110;
+}
+.btn-light-gray {
+  @apply btn bg-gray-700;
+}
+.btn-dark-gray {
+  @apply btn bg-gray-800;
+}
+.like-btn {
+  @apply text-2xl transform hover:scale-110 active:scale-150;
+}
+.input{
+    @apply mb-4 rounded
+}
+
+@layer base {
+  body {
+    @apply m-0 bg-gray-800 text-white;
+  }
+  a {
+    @apply text-white no-underline;
+  }
+  input {
+    @apply text-black;
+  }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: 0;
+  width: clamp(200px, 50%, 500px);
+  justify-content: space-between;
+  cursor: pointer;
+}
+.act {
+  transform: scale(1.5);
+}
+.act:focus,
+.prev:focus,
+.next:focus {
+  outline: 0;
+}

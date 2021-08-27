@@ -26,29 +26,29 @@ const Random = ({ randomMeme }) => {
   };
   return (
     <div>
-      <MemeBody
-        topTitle={topTitle}
-        image={`${process.env.NEXT_PUBLIC_SERVER_HOST}/memes/${image}`}
-        bottomTitle={bottomTitle}
-        text={text}
-      />
-      <MemeFooter
-        createdAt={createdAt}
-        likes={likes.likesCount}
-        dislikes={dislikes.dislikesCount}
-        comments={comments}
-        id={_id}
-        author={author}
-      />
-      <button type="button" onClick={getRandomMeme}>
+      <div className="divide-y-2 divide-gray-700">
+        <MemeBody
+          topTitle={topTitle}
+          image={`${process.env.NEXT_PUBLIC_SERVER_HOST}/memes/${image}`}
+          bottomTitle={bottomTitle}
+          text={text}
+        />
+        <MemeFooter
+          createdAt={createdAt}
+          likes={likes.likesCount}
+          dislikes={dislikes.dislikesCount}
+          comments={comments}
+          id={_id}
+          author={author}
+        />
+      </div>
+      <button
+        className="block mt-4 mx-auto btn-dark-gray"
+        type="button"
+        onClick={getRandomMeme}
+      >
         Get Random meme
       </button>
-      <style jsx>{`
-        button {
-          display: block;
-          margin: 1rem auto 0;
-        }
-      `}</style>
     </div>
   );
 };

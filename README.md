@@ -59,3 +59,4 @@ $ npm start
 - create-next-app
 - Next.js
 - Date-fns
+- Tailwindcss

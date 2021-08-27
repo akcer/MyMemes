@@ -13,16 +13,14 @@ const Gallery = ({
   handlePaginationChange,
 }) => {
   return (
-    <div className="gallery">
+    <div className="flex flex-col items-center">
       {memes.map((meme) => (
-        <div className="meme" key={meme._id}>
+        <div className="divide-y-2 divide-gray-700 mb-4" key={meme._id}>
           <Link href={`/meme/${meme._id}`}>
-            <a>
+            <a className="block">
               <MemeBody
                 topTitle={meme.topTitle}
-                image={
-                  `${process.env.NEXT_PUBLIC_SERVER_HOST}/memes/${meme.image}` 
-                }
+                image={`${process.env.NEXT_PUBLIC_SERVER_HOST}/memes/${meme.image}`}
                 bottomTitle={meme.bottomTitle}
                 text={meme.text}
               />
@@ -49,50 +47,23 @@ const Gallery = ({
         pageRangeDisplayed={3}
         onPageChange={handlePaginationChange}
         containerClassName={'pagination'}
-        activeClassName={'active'}
+        activeClassName={'act'}
         previousClassName={'prev'}
         nextClassName={'next'}
       />
-      <div className="limit">
-        <span>Memes per page:</span>
-        <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+      <div className="limit mt-4">
+        <span className="mr-4">Memes per page:</span>
+        <select
+          className="text-black rounded"
+          value={itemsPerPage}
+          onChange={handleItemsPerPageChange}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="5">5</option>
           <option value="10">10</option>
         </select>
       </div>
-      <style jsx>
-        {`
-          .gallery {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          .meme {
-            margin-bottom: 1rem;
-            width: 100%;
-          }
-          a {
-            text-decoration: none;
-            display: block;
-          }
-          :global(.pagination) {
-            display: flex;
-            list-style-type: none;
-            padding-inline-start: 0;
-            width: clamp(200px, 50%, 500px);
-            justify-content: space-between;
-            cursor: pointer;
-          }
-          :global(.active) {
-            transform: scale(1.5);
-          }
-          :global(.active :focus, .prev :focus, .next :focus) {
-            outline: 0;
-          }
-        `}
-      </style>
     </div>
   );
 };

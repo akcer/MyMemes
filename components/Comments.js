@@ -69,10 +69,10 @@ const Comments = ({ memeId }) => {
   };
 
   return (
-    <div className="comments">
+    <div className="comments w-full">
       {!showComments && (
         <button
-          className="show"
+          className="btn-light-gray block mx-auto my-4"
           onClick={() => {
             getComments(memeId);
           }}
@@ -83,11 +83,11 @@ const Comments = ({ memeId }) => {
       {showComments && (
         <div>
           {!comments.length && 'No comments yet'}
-          <ul>
+          <ul className="divide-y divide-gray-500">
             {comments.map((comment) => (
-              <li key={comment._id}>
-                <div className="comment__header">
-                  <div className="avatar">
+              <li className="block py-4 pl-0 pr-4" key={comment._id}>
+                <div className="flex items-start">
+                  <div className="mr-4 w-12">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_SERVER_HOST}/avatars/${comment.author.avatar}`}
                       alt={comment.author.username}
@@ -96,7 +96,7 @@ const Comments = ({ memeId }) => {
                     />
                   </div>
 
-                  <div className="comment__info">
+                  <div className="inline-block text-sm">
                     <p>
                       <Link
                         href={{
@@ -115,12 +115,13 @@ const Comments = ({ memeId }) => {
                     </p>
                   </div>
                 </div>
-                <div className="comment__body">{comment.text}</div>
+                <div className="my-4">{comment.text}</div>
                 {
                   //show delete button if user is admin or comment author
                   (user.role === 'admin' ||
                     user.username === comment.author.username) && (
                     <button
+                      className="btn-light-gray"
                       type="button"
                       onClick={() => {
                         deleteComment(comment._id);
@@ -134,12 +135,14 @@ const Comments = ({ memeId }) => {
             ))}
           </ul>
           <form
+            className="flex flex-col"
             onSubmit={(event) => {
               handleSubmit(event, memeId);
             }}
           >
             <label htmlFor="comment">Add Comment:</label>
             <textarea
+              className="rounded"
               name="comment"
               id="comment"
               onChange={(e) => setCommentText(e.target.value)}
@@ -147,60 +150,10 @@ const Comments = ({ memeId }) => {
               placeholder="Your Comment:"
             />
             {isError && <Error error={error} />}
-            <button>Add Comment</button>
+            <button className="btn-light-gray mx-auto my-4">Add Comment</button>
           </form>
         </div>
       )}
-      <style jsx>{`
-        .comments {
-          width: 100%;
-          font-size: 1rem;
-        }
-        .show {
-          margin: 1rem auto;
-          display: block;
-        }
-        ul {
-          list-style-type: none;
-          margin-top: 0;
-          padding-left: 0;
-        }
-        li {
-          display: block;
-          border-top: 1px solid var(--main-color);
-          border-bottom: 1px solid var(--main-color);
-          padding: 1rem;
-          padding-left: 0;
-        }
-        .avatar {
-          width: 3rem;
-          margin-right: 1rem;
-        }
-        .comment__info {
-          display: inline-block;
-        }
-        .comment__header {
-          display: flex;
-          align-items: flex-start;
-        }
-        .comment__body {
-          margin: 1rem 0;
-        }
-        p {
-          margin: 0;
-          font-size: 0.9rem;
-        }
-        textarea {
-          border-radius: 5px;
-        }
-        form {
-          display: flex;
-          flex-direction: column;
-        }
-        form button {
-          margin: 1rem auto;
-        }
-      `}</style>
     </div>
   );
 };
