@@ -45,9 +45,10 @@ const Likes = ({ likes, dislikes, id }) => {
   return (
     <div>
       {isError && <Error error={error} />}
-      <div className="likes">
+      <div className="likes flex justify-center items-baseline text-lg">
         {votes.likes}
         <button
+          className="mx-2 bg-transparent border-none like-btn"
           onClick={() => {
             like(id);
           }}
@@ -56,6 +57,7 @@ const Likes = ({ likes, dislikes, id }) => {
         </button>
         {votes.dislikes}
         <button
+          className="ml-2 bg-transparent border-none like-btn"
           onClick={() => {
             dislike(id);
           }}
@@ -63,24 +65,6 @@ const Likes = ({ likes, dislikes, id }) => {
           &#x1F44E;
         </button>
       </div>
-      <style jsx>
-        {`
-          .likes {
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            font-size: 1.1rem;
-          }
-          button {
-            background-color: transparent;
-            border: none;
-            font-size: 1.5rem;
-          }
-          button:active {
-            transform: scale(1.5);
-          }
-        `}
-      </style>
     </div>
   );
 };

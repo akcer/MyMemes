@@ -54,86 +54,75 @@ const Register = () => {
 
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
-          <div>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              autoComplete="username"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autoComplete="new-password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-          </div>
-          <div>
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              autoComplete="new-password"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              value={confirmPassword}
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              autoComplete="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-          </div>
-          <div>
-            <label htmlFor="avatarFile">Avatar:</label>
-            <input
-              type="file"
-              name="avatarFile"
-              id="avatarFile"
-              accept="image/*"
-              onChange={handleImageFileChange}
-            />
-            <img src={avatarPreviewUrl} />
-          </div>
-          {isError && <Error error={error} />}
-          <button>Register</button>
-        </form>
-      </div>
-
-      <style jsx>{`
-        form {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        form div {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        img {
-          max-width: 200px;
-        }
-        button{
-          margin-top:1rem
-        }
-      `}</style>
+      <h3 className="text-center text-xl font-bold mb-4">Register</h3>
+      <form
+        className="flex flex-col items-center"
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+      >
+        <div className="flex flex-col items-center">
+          <label htmlFor="username">Username:</label>
+          <input
+            className="input"
+            type="text"
+            id="username"
+            name="username"
+            autoComplete="username"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+          />
+        </div>
+        <div className="flex flex-col items-center mt-2">
+          <label htmlFor="password">Password:</label>
+          <input
+            className="input"
+            type="password"
+            id="password"
+            name="password"
+            autoComplete="new-password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+        </div>
+        <div className="flex flex-col items-center mt-2">
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input
+            className="input"
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            autoComplete="new-password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
+          />
+        </div>
+        <div className="flex flex-col items-center mt-2">
+          <label htmlFor="email">Email:</label>
+          <input
+            className="input"
+            type="email"
+            id="email"
+            name="email"
+            autoComplete="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
+        <div className="flex flex-col items-center mt-2">
+          <label htmlFor="avatarFile">Avatar:</label>
+          <input
+            className="text-white"
+            type="file"
+            name="avatarFile"
+            id="avatarFile"
+            accept="image/*"
+            onChange={handleImageFileChange}
+          />
+          <img className="max-w-xs mt-4" src={avatarPreviewUrl} />
+        </div>
+        {isError && <Error error={error} />}
+        <button className="btn-dark-gray">Register</button>
+      </form>
     </div>
   );
 };

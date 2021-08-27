@@ -38,50 +38,35 @@ const Login = () => {
   };
   return (
     <div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              autoComplete="username"
-              onChange={(event) => setUsername(event.target.value)}
-              value={username}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autoComplete="current-password"
-              onChange={(event) => setPassword(event.target.value)}
-              value={password}
-            />
-          </div>
-          {isError && <Error error={error} />}
-          <button>Login</button>
-        </form>
-      </div>
-
-      <style jsx>{`
-        form {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        form div {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        button{
-          margin-top:1rem
-        }
-      `}</style>
+      <h3 className="text-center text-xl font-bold mb-4">Login</h3>
+      <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+        <div className="flex flex-col items-center">
+          <label htmlFor="username">Username:</label>
+          <input
+            className="input"
+            type="text"
+            id="username"
+            name="username"
+            autoComplete="username"
+            onChange={(event) => setUsername(event.target.value)}
+            value={username}
+          />
+        </div>
+        <div className="flex flex-col items-center mt-2">
+          <label htmlFor="password">Password:</label>
+          <input
+            className="input"
+            type="password"
+            id="password"
+            name="password"
+            autoComplete="current-password"
+            onChange={(event) => setPassword(event.target.value)}
+            value={password}
+          />
+        </div>
+        {isError && <Error error={error} />}
+        <button className="btn-dark-gray">Login</button>
+      </form>
     </div>
   );
 };

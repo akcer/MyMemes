@@ -14,7 +14,7 @@ const Meme = ({ meme }) => {
   }
 
   return (
-    <div>
+    <div className="divide-y-2 divide-gray-700">
       <MemeBody
         topTitle={meme.topTitle}
         image={`${process.env.NEXT_PUBLIC_SERVER_HOST}/memes/${meme.image}`}
@@ -29,17 +29,16 @@ const Meme = ({ meme }) => {
         id={meme._id}
         author={meme.author.username}
       />
-      <style jsx>{``}</style>
     </div>
   );
 };
 
 export async function getStaticPaths() {
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_SERVER_HOST}/memes`
-  ).catch((error) => {
-    console.log(error);
-  });
+  const response = await axios
+    .get(`${process.env.NEXT_PUBLIC_SERVER_HOST}/memes`)
+    .catch((error) => {
+      console.log(error);
+    });
   const resp = response.data;
   const paths = resp.map((meme) => `/meme/${meme._id}`);
   return { paths, fallback: true };

@@ -26,22 +26,15 @@ const Logout = () => {
 
   return (
     <div>
-      <h3>Logout</h3>
+      <h3 className="text-center text-xl font-bold mb-4">Logout</h3>
       {isError && <Error error={error} />}
-      <button type="button" onClick={handleClick}>
+      <button
+        className="block mx-auto btn-dark-gray"
+        type="button"
+        onClick={handleClick}
+      >
         Logout
       </button>
-      <style jsx>{`
-        h3 {
-          text-align: center;
-          margin-top: 0;
-        }
-        button {
-          display: block;
-          max-width: 200px;
-          margin: auto;
-        }
-      `}</style>
     </div>
   );
 };

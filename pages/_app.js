@@ -1,3 +1,4 @@
+import '../styles/globals.css'
 import Layout from '../layouts/Layout';
 import React, { useState, useEffect } from 'react';
 import UserContext from '../contexts/userContext';

@@ -3,11 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MemeBody = ({ topTitle, image, text, bottomTitle }) => {
-  
   return (
-    <div>
-      <h2>{topTitle}</h2>
-      <div className="meme__image">
+    <div className="bg-gray-800 mx-auto w-11/12 overflow-auto">
+      <h2 className="text-center text-2xl my-6 font-bold">{topTitle}</h2>
+      <div className="mx-auto w-11/12">
         <Image
           src={`${image}`}
           alt={`${topTitle} ${bottomTitle}`}
@@ -16,31 +15,8 @@ const MemeBody = ({ topTitle, image, text, bottomTitle }) => {
           objectFit="contain"
         />
       </div>
-      <h2>{bottomTitle}</h2>
-      <p>{text}</p>
-      <style jsx>
-        {`
-          div {
-            background-color: var(--bg-color);
-            overflow:auto;
-          }
-          .meme__image {
-            margin: 0 auto;
-            width: 90%;
-          }
-
-          h2 {
-            text-align: center;
-            //margin-top:0;
-            //padding-top:1rem
-          }
-          p {
-            text-align: center;
-            padding-bottom: 1rem;
-            margin: 0;
-          }
-        `}
-      </style>
+      <h2 className="text-center text-2xl my-6 font-bold">{bottomTitle}</h2>
+      <p className="text-center text-xl pb-4">{text}</p>
     </div>
   );
 };

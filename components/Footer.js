@@ -2,16 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="text-center mt-auto">
       Copyrights
-      <style jsx>
-        {`
-          footer {
-            margin-top: 150px;
-            text-align: center;
-          }
-        `}
-      </style>
     </footer>
   );
 };

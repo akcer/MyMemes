@@ -11,12 +11,15 @@ const Header = () => {
     }
   }, []);
   return (
-    <header>
-      <div>
+    <header className="flex flex-col p-4 sm:flex-row sm:items-center">
+      <div className="flex justify-between items-center">
         <Link href="/">
-          <h1>MyMemes</h1>
+          <h1 className="text-center text-2xl mr-20 cursor-pointer font-black">
+            MyMemes
+          </h1>
         </Link>
         <button
+          className="w-8 h-8 bg-transparent border-2 rounded-md sm:hidden"
           type="button"
           onClick={() => {
             toggleMenu(!showMenu);
@@ -31,47 +34,6 @@ const Header = () => {
         </button>
       </div>
       <Nav showMenu={showMenu} />
-      <style jsx>{`
-        header {
-          display: flex;
-          flex-direction: column;
-          padding:1rem
-        }
-        div {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        h1 {
-          text-align: center;
-          font-size: 24px;
-          cursor: pointer;
-          margin-right: 5rem;
-        }
-        button {
-          width: 2rem;
-          height: 2rem;
-          background-color: transparent;
-          border 3px solid white;
-          border-radius: 20%;
-          padding:0;
-        }
-        button:active{
-          transform: scale(1.1);
-        }
-        img {
-          width: 100%;
-        }
-        @media (min-width: 600px) {
-          button {
-            display: none;
-          }
-          header {
-            flex-direction: row;
-            align-items: center;
-          }
-        }
-      `}</style>
     </header>
   );
 };

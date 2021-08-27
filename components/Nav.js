@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 const Nav = ({ showMenu }) => {
   const user = useContext(UserContext);
   return (
-    <nav>
+    <nav className="w-full">
       {showMenu ? (
-        <ul>
+        <ul className="flex flex-col items-center sm:flex-row sm:justify-between">
           <li>
             <Link
               href={{
@@ -46,7 +46,7 @@ const Nav = ({ showMenu }) => {
             </Link>
           </li>
           {
-            //if user not logged 
+            //if user not logged
             !user.username ? (
               <>
                 <li>
@@ -81,7 +81,7 @@ const Nav = ({ showMenu }) => {
                         alt={`${user.username} avatar`}
                         width={30}
                         height={30}
-                        className="avatar"
+                        className="rounded-full"
                       />
                     </a>
                   </Link>
@@ -101,39 +101,10 @@ const Nav = ({ showMenu }) => {
           }
         </ul>
       ) : null}
-      <style jsx>{`
-        nav {
-          width: 100%;
-        }
-        ul {
-          list-style-type: none;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-inline-start: 0;
-        }
-        a {
-          text-decoration: none;
-        }
-        @media (min-width: 600px) {
-          ul {
-            flex-direction: row;
-            justify-content: space-between;
-          }
-        }
-      `}</style>
-      <style jsx global>
-        {`
-          .avatar {
-            border-radius: 50%;
-          }
-        `}
-      </style>
-      {/*https://github.com/vercel/next.js/discussions/18312#discussioncomment-273122*/}
     </nav>
   );
 };
-Nav.propTypes={
-  showMenu:PropTypes.bool.isRequired,
-}
+Nav.propTypes = {
+  showMenu: PropTypes.bool.isRequired,
+};
 export default Nav;
