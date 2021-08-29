@@ -9,7 +9,7 @@ Memes Server Side App build with Next.js
 
 ## Demo
 
-[MyMemes](https://my-memes1.vercel.app/)
+[MyMemes](https://my-memes.vercel.app/)
 ## Installation
 
 - Set up API [MyMemesAPI](https://github.com/akcer/MyMemesAPI)
