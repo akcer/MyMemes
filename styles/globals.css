@@ -15,7 +15,7 @@
   @apply text-2xl transform hover:scale-110 active:scale-150;
 }
 .input{
-    @apply mb-4 rounded
+    @apply mb-4 p-1 rounded 
 }
 
 @layer base {

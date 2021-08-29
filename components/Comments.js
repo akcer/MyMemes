@@ -142,7 +142,7 @@ const Comments = ({ memeId }) => {
           >
             <label htmlFor="comment">Add Comment:</label>
             <textarea
-              className="rounded"
+              className="rounded text-black p-1"
               name="comment"
               id="comment"
               onChange={(e) => setCommentText(e.target.value)}
