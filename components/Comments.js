@@ -13,6 +13,7 @@ const Comments = ({ memeId }) => {
   const [commentText, setCommentText] = useState('');
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState({});
+  const [isImageError, setIsImageError] = useState(false);
   const user = useContext(UserContext);
   //Get comments
   const getComments = (memeId) => {
@@ -89,10 +90,17 @@ const Comments = ({ memeId }) => {
                 <div className="flex items-start">
                   <div className="mr-4 w-12">
                     <Image
-                      src={`${process.env.NEXT_PUBLIC_SERVER_HOST}/avatars/${comment.author.avatar}`}
+                      src={
+                        isImageError
+                          ? '/default-avatar.png'
+                          : `${process.env.NEXT_PUBLIC_SERVER_HOST}/avatars/${comment.author.avatar}`
+                      }
                       alt={comment.author.username}
                       width={100}
                       height={100}
+                      onError={() => {
+                        setIsImageError(true);
+                      }}
                     />
                   </div>
 
